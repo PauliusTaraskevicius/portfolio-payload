@@ -8,7 +8,7 @@ export const ContentWrapper = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("w-full mx-auto max-w-screen-xl px-2.5", className)}>
+    <div className={cn("w-full mx-auto max-w-screen-xl px-2.5 ", className)}>
       {children}
     </div>
   );
