@@ -1,0 +1,24 @@
+import { CollectionConfig } from "payload/types";
+
+export const Media: CollectionConfig = {
+  slug: "media",
+  labels: {
+    singular: "Media",
+    plural: "Media",
+  },
+  access: {
+    read: () => true,
+    create: () => true,
+    update: () => true,
+    delete: () => true,
+  },
+  upload: true,
+  fields: [
+    {
+      name: "alt",
+      label: "Alt",
+      type: "text",
+      required: true,
+    },
+  ],
+};

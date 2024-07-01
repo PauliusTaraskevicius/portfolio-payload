@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/navigation/navigation";
+import Providers from "@/components/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +22,10 @@ export default function RootLayout({
         {" "}
         {/* bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 from-slate-50 to-red-100 */}
         <div className="min-h-screen bg-gradient-to-b from-slate-50 to-red-100">
-          <Navigation />
-          {children}
+          <Providers>
+            <Navigation />
+            {children}
+          </Providers>
         </div>
       </body>
     </html>
