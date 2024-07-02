@@ -25,7 +25,7 @@ export interface Project {
   name: string;
   slug: string;
   description: string;
-  images: {
+  image: {
     image: string | Media;
     id?: string | null;
   }[];
