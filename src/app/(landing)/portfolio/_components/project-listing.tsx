@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-// import { PRODUCT_CATEGORIES } from "@/config";
-// import ImageSlider from "./ImageSlider";
 
 interface ProjectListingProps {
   project: Project | null;
@@ -40,14 +38,6 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
         href={`/portfolio/${project.id}`}
       >
         <div className="flex flex-col w-full">
-          {/* <ImageSlider urls={validUrls} /> */}
-
-          {/* {validUrls.map((url) => (
-            <div key={url}>
-              <Image src={url} height={10} width={10} alt="image" />
-            </div>
-          ))} */}
-
           {validUrls.map((url, i) => (
             <div key={i} className="relative h-full w-full">
               <Image
