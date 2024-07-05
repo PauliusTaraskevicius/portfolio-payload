@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navigation } from "@/components/navigation/navigation";
 import Providers from "@/components/providers";
 
+import { Toaster } from "@/components/ui/toaster"
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ export default function RootLayout({
         <div className="min-h-screen bg-gradient-to-b from-slate-50 to-red-100">
           <Providers>
             <Navigation />
+            <Toaster />
             {children}
           </Providers>
         </div>
