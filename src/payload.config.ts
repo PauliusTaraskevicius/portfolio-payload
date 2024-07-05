@@ -32,6 +32,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URL!,
   }),
+
   plugins: [
     // storage-adapter-placeholder
     cloudStorage({

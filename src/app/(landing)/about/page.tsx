@@ -19,12 +19,12 @@ const AboutPage = () => {
             </p>
             <span className="italic text-lg text-muted-foreground">
               Creating web applications as my hobby and full time job.I create
-              custom websites, complex systems to help businesses do better
+              custom websites, complex systems to help businesses do betters
               online.Worry not, I will make the process as easy and quick as
               possible. Currently, I&apos;m learning about design principles and
               software architecture.
             </span>
-            <div className="animate-pulse cursor-pointer">
+            <div className=" animate-pulse cursor-pointer">
               <a href="#skills">
                 <Image
                   src="/mouse1.png"
