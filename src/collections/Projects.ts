@@ -43,6 +43,12 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "brief",
+      label: "Brief",
+      type: "textarea",
+      required: true,
+    },
+    {
       name: "description",
       type: "richText",
       label: "Project description",

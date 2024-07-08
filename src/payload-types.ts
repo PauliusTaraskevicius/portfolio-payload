@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+
 
 export interface Config {
   collections: {
@@ -24,6 +24,7 @@ export interface Project {
   user?: string | User;
   name: string;
   slug: string;
+  brief: string;
   description: string;
   image: {
     image: string | Media;

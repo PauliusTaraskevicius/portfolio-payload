@@ -28,7 +28,7 @@ const PortfolioPage = () => {
         <ProjectsReel
           query={{ sort: "desc", limit: 4 }}
           href="/portfolio?sort=recent"
-          name="Brand new"
+          name=""
         />
       </div>
     </ContentWrapper>

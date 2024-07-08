@@ -7,6 +7,7 @@ import Image from "next/image";
 import React, { Fragment } from "react";
 import escapeHTML from "escape-html";
 import { Text } from "slate";
+import { TypeWithID } from "payload/types";
 
 type Props = {
   params: {
@@ -29,16 +30,16 @@ const PortfolioIdPage = async ({ params }: Props) => {
     },
   });
 
-  const [project] = projects;
+  const [project]: (TypeWithID & Record<string, unknown>)[] = projects;
 
   if (!project) return notFound();
 
-  const validUrls = project.image
-    .map(({ image }) => (typeof image === "string" ? image : image.url))
-    .filter(Boolean) as string[];
+  // const validUrls = project.image
+  //   .map(({ image }) => (typeof image === "string" ? image : image.url))
+  //   .filter(Boolean) as string[];
 
   const richTextSerializer = (children: JSX.Element[] | string | any) =>
-    children.map((node: any, i: any) => {
+    children.map((node: Record<string, unknown>, i: number) => {
       if (Text.isText(node)) {
         let text = (
           <span dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }} />
@@ -59,8 +60,6 @@ const PortfolioIdPage = async ({ params }: Props) => {
         if (node.text === "") {
           text = <br />;
         }
-
-        // Handle other leaf types here...
 
         return <Fragment key={i}>{text}</Fragment>;
       }

@@ -31,8 +31,7 @@ const ProjectsReel = (props: ProjectsReelProps) => {
 
   const projects = queryResults?.pages.flatMap((page) => page.items);
 
-
-  let map: (Project | null)[] = [];
+  let map: (Project | any)[] = [];
   if (projects && projects.length) {
     map = projects;
   } else if (isLoading) {
@@ -52,15 +51,6 @@ const ProjectsReel = (props: ProjectsReelProps) => {
             <p className="mt-2 text-sm text-muted-foreground">{slug}</p>
           ) : null}
         </div>
-
-        {/* {href ? (
-          <Link
-            href={href}
-            className="hidden text-sm font-medium text-blue-600 hover:text-blue-500 md:block"
-          >
-            Shop the collection <span aria-hidden="true">&rarr;</span>
-          </Link>
-        ) : null} */}
       </div>
 
       <div className="relative">
