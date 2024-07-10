@@ -1,5 +1,3 @@
-
-
 export interface Config {
   collections: {
     users: User;
@@ -25,6 +23,7 @@ export interface Project {
   name: string;
   slug: string;
   brief: string;
+  url: string;
   description: string;
   image: {
     image: string | Media;

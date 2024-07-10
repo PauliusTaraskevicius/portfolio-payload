@@ -3,8 +3,12 @@
 import { TQueryValidator } from "@/lib/query-validator";
 import { Project } from "@/payload-types";
 import { trpc } from "@/trpc/client";
-import Link from "next/link";
 import ProjectListing from "./project-listing";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 interface ProjectsReelProps {
   name: string;
@@ -16,7 +20,7 @@ interface ProjectsReelProps {
 const FALLBACK_LIMIT = 4;
 
 const ProjectsReel = (props: ProjectsReelProps) => {
-  const { name, slug, href, query } = props;
+  const { query } = props;
 
   const { data: queryResults, isLoading } =
     trpc.getInfiniteProjects.useInfiniteQuery(
@@ -39,34 +43,23 @@ const ProjectsReel = (props: ProjectsReelProps) => {
   }
 
   return (
-    <section className="py-12">
-      <div className="md:flex md:items-center md:justify-between mb-4">
-        <div className="max-w-2xl px-4 lg:max-w-4xl lg:px-0">
-          {name ? (
-            <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-              {name}
-            </h1>
-          ) : null}
-          {slug ? (
-            <p className="mt-2 text-sm text-muted-foreground">{slug}</p>
-          ) : null}
-        </div>
-      </div>
-
-      <div className="relative">
-        <div className="mt-6 flex items-center w-full">
-          <div className="w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8">
+    <>
+      <div className="h-full w-full flex items-center justify-center overflow-hidden rounded-lg  py-4">
+        <Carousel className="w-[50%]">
+          <CarouselContent>
             {map.map((project, i) => (
-              <ProjectListing
-                key={`project-${i}`}
-                project={project}
-                index={i}
-              />
+              <CarouselItem key={`project-${i}`}>
+                <ProjectListing
+                  key={`project-${i}`}
+                  project={project}
+                  index={i}
+                />
+              </CarouselItem>
             ))}
-          </div>
-        </div>
+          </CarouselContent>
+        </Carousel>
       </div>
-    </section>
+    </>
   );
 };
 

@@ -43,6 +43,12 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "url",
+      label: "Url",
+      type: "text",
+      required: true,
+    },
+    {
       name: "brief",
       label: "Brief",
       type: "textarea",

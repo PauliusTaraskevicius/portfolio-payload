@@ -33,19 +33,23 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
 
   if (isVisible && project) {
     return (
-      <Link
+      <a
         className={cn("invisible h-full w-full cursor-pointer group/main", {
           "visible animate-in fade-in-5": isVisible,
         })}
         // href={`/portfolio/${project.id}`}
-        href="#"
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
       >
+        <h3 className="font-semibold text-5xl text-center">{project.name}</h3>
         <div className="flex flex-col w-full">
           {validUrls.map((url, i) => (
             <div key={i} className="relative h-full w-full">
               <Image
-                height={300}
-                width={300}
+                height={500}
+                width={500}
+                quality={80}
                 loading="eager"
                 className="h-full w-full object-cover object-center"
                 src={url!}
@@ -54,14 +58,11 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
             </div>
           ))}
 
-          <h3 className="mt-4 font-medium text-sm text-gray-700">
-            {project.name}
-          </h3>
           <p className="mt-1 font-medium text-sm text-gray-900">
             {project.brief}
           </p>
         </div>
-      </Link>
+      </a>
     );
   }
 };
