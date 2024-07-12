@@ -36,6 +36,7 @@
     "embla-carousel-wheel-gestures": "^8.0.1",
     "escape-html": "^1.0.3",
     "express": "^4.19.2",
+    "framer-motion": "^11.2.14",
     "lucide-react": "^0.397.0",
     "next": "14.2.4",
     "payload": "^2.23.1",

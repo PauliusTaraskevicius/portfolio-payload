@@ -4,7 +4,7 @@ import { ContentWrapper } from "@/components/content-wrapper";
 
 const PortfolioPage = () => {
   return (
-    <ContentWrapper>
+    // <ContentWrapper>
       <div className="flex flex-col pb-24 pt-10 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-52 lg:pb-52 justify-center items-center">
         <div className="flex flex-col justify-center items-center space-y-6">
           <h1 className="text-6xl font-normal md:text-8xl lg:leading-normal uppercase">
@@ -31,7 +31,7 @@ const PortfolioPage = () => {
           name=""
         />
       </div>
-    </ContentWrapper>
+    // </ContentWrapper>
   );
 };
 
