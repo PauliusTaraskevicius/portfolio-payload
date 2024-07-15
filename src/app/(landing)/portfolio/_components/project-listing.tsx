@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useState, Fragment } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Project } from "@/payload-types";
 import { Skeleton } from "@/components/ui/skeleton";
-
-import { ContentWrapper } from "@/components/content-wrapper";
 
 interface ProjectListingProps {
   project: Project | null;
@@ -15,6 +13,7 @@ interface ProjectListingProps {
 
 const ProjectListing = ({ project, index }: ProjectListingProps) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,12 +31,43 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
 
   if (isVisible && project) {
     return (
-      <div className="w-full">
-        {" "}
+      // <section
+      //   style={{ perspective: "500px" }}
+      //   className="h-[100vh] flex justify-center items-center relative snap-center "
+      // >
+      //   <div
+      //     className="w-[300px] h-[400px] relative max-h-[90vh] m-[20px] overflow-hidden "
+      //   >
+      //     {validUrls.map((url, i) => (
+      //       <a
+      //         key={i}
+      //         className={cn("invisible cursor-pointer", {
+      //           "visible animate-in fade-in-5": isVisible,
+      //         })}
+      //         // href={`/portfolio/${project.id}`}
+      //         href={project.url}
+      //         target="_blank"
+      //         rel="noopener noreferrer"
+      //       >
+      //         <Image
+      //           height={1200}
+      //           width={1200}
+      //           quality={80}
+      //           loading="eager"
+      //           className="h-full object-cover bg-center transition-transform duration-300 group-hover:scale-110"
+      //           src={url!}
+      //           alt="Project image"
+      //         />
+      //       </a>
+      //     ))}
+      //   </div>
+      // </section>
+
+      <div className="group relative h-[450px] overflow-hidden snap-center ">
         {validUrls.map((url, i) => (
           <a
             key={i}
-            className={cn("invisible  cursor-pointer", {
+            className={cn("invisible", {
               "visible animate-in fade-in-5": isVisible,
             })}
             // href={`/portfolio/${project.id}`}
@@ -46,48 +76,23 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
             rel="noopener noreferrer"
           >
             <Image
-              height={500}
-              width={500}
+              height={1200}
+              width={1200}
               quality={80}
               loading="eager"
-              className="object-cover"
+              className="h-full object-cover bg-center transition-transform duration-300 group-hover:scale-110"
               src={url!}
               alt="Project image"
             />
           </a>
         ))}
+
+        <div className="absolute inset-0 z-10 grid place-content-center cursor-pointer">
+          <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+            {project.name}
+          </p>
+        </div>
       </div>
-
-      // <a
-      //   className={cn("invisible h-full w-full cursor-pointer group/main", {
-      //     "visible animate-in fade-in-5": isVisible,
-      //   })}
-      //   // href={`/portfolio/${project.id}`}
-      //   href={project.url}
-      //   target="_blank"
-      //   rel="noopener noreferrer"
-      // >
-      //   <h3 className="font-semibold text-5xl text-center">{project.name}</h3>
-      //   <div className="flex flex-col w-full">
-      //     {validUrls.map((url, i) => (
-      //       <div key={i} className="relative h-full w-full">
-      //         <Image
-      //           height={500}
-      //           width={500}
-      //           quality={80}
-      //           loading="eager"
-      //           className="h-full w-full object-cover object-center"
-      //           src={url!}
-      //           alt="Project image"
-      //         />
-      //       </div>
-      //     ))}
-
-      //     <p className="mt-1 font-medium text-sm text-gray-900">
-      //       {project.brief}
-      //     </p>
-      //   </div>
-      // </a>
     );
   }
 };
