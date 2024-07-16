@@ -23,7 +23,8 @@ const ProjectsReel = (props: ProjectsReelProps) => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-100%"]);
+  // const x = useTransform(scrollYProgress, [0, 1], ["1%", "-100%",]);
+  const x = useTransform(scrollYProgress, [1, 0], ["-1%", "100%"]);
 
   const { query } = props;
 
@@ -73,14 +74,17 @@ const ProjectsReel = (props: ProjectsReelProps) => {
             className="flex gap-4"
           >
             {map.map((project, i) => (
-              <motion.div
-                key={`project-${i}`}
-                initial={{ opacity: 0, y: 150 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                <ProjectListing project={project} index={i} />
-              </motion.div>
+              <>
+                {" "}
+                <motion.div
+                  key={`project-${i}`}
+                  initial={{ opacity: 0, y: 150 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  <ProjectListing project={project} index={i} />
+                </motion.div>
+              </>
             ))}
           </motion.div>
         </div>

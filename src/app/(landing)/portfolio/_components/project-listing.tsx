@@ -14,7 +14,6 @@ interface ProjectListingProps {
 const ProjectListing = ({ project, index }: ProjectListingProps) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -63,7 +62,10 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
       //   </div>
       // </section>
 
-      <div className="group relative h-[450px] overflow-hidden snap-center ">
+      <section
+        style={{ perspective: "500px" }}
+        className="group relative h-[450px] overflow-hidden snap-center"
+      >
         {validUrls.map((url, i) => (
           <a
             key={i}
@@ -76,8 +78,8 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
             rel="noopener noreferrer"
           >
             <Image
-              height={1200}
-              width={1200}
+              height={800}
+              width={800}
               quality={80}
               loading="eager"
               className="h-full object-cover bg-center transition-transform duration-300 group-hover:scale-110"
@@ -92,7 +94,7 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
             {project.name}
           </p>
         </div>
-      </div>
+      </section>
     );
   }
 };
