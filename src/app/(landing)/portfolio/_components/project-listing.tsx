@@ -61,38 +61,39 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
       //     ))}
       //   </div>
       // </section>
-
       <section
         style={{ perspective: "500px" }}
-        className="group relative h-[450px] overflow-hidden snap-center"
+        className="h-[100vh] flex justify-center items-center relative"
       >
-        {validUrls.map((url, i) => (
-          <a
-            key={i}
-            className={cn("invisible", {
-              "visible animate-in fade-in-5": isVisible,
-            })}
-            // href={`/portfolio/${project.id}`}
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              height={800}
-              width={800}
-              quality={80}
-              loading="eager"
-              className="h-full object-cover bg-center transition-transform duration-300 group-hover:scale-110"
-              src={url!}
-              alt="Project image"
-            />
-          </a>
-        ))}
+        <div className="group relative h-[600px] w-[900px] overflow-hidden ">
+          {validUrls.map((url, i) => (
+            <a
+              key={i}
+              className={cn("invisible", {
+                "visible animate-in fade-in-5": isVisible,
+              })}
+              // href={`/portfolio/${project.id}`}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                height={800}
+                width={800}
+                quality={80}
+                loading="eager"
+                className="h-full w-full object-cover bg-center transition-transform duration-300 group-hover:scale-110 "
+                src={url!}
+                alt="Project image"
+              />
+            </a>
+          ))}
 
-        <div className="absolute inset-0 z-10 grid place-content-center cursor-pointer">
-          <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
-            {project.name}
-          </p>
+          <div className="absolute inset-0 z-10 grid place-content-center cursor-pointer">
+            <p className="bg-gradient-to-br w-full from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+              {project.name}
+            </p>
+          </div>
         </div>
       </section>
     );
