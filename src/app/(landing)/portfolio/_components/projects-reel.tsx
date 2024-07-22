@@ -1,10 +1,12 @@
 "use client";
 import { useRef } from "react";
+import { useMedia } from "react-use";
+
 import { TQueryValidator } from "@/lib/query-validator";
 import { Project } from "@/payload-types";
 import { trpc } from "@/trpc/client";
-import ProjectListing from "./project-listing";
 
+import ProjectListing from "./project-listing";
 import { motion, useTransform, useScroll } from "framer-motion";
 
 interface ProjectsReelProps {
@@ -18,13 +20,14 @@ const FALLBACK_LIMIT = 4;
 
 const ProjectsReel = (props: ProjectsReelProps) => {
   const targetRef = useRef(null);
+  const isMobile = useMedia("(max-width: 1024px)", false);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
   // const x = useTransform(scrollYProgress, [0, 1], ["1%", "-100%",]);
-  const x = useTransform(scrollYProgress, [1, 0], ["-100%", "70%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["55%", "-60%"]);
 
   const { query } = props;
 
@@ -48,12 +51,35 @@ const ProjectsReel = (props: ProjectsReelProps) => {
     map = new Array<null>(query.limit ?? FALLBACK_LIMIT).fill(null);
   }
 
+  if (isMobile) {
+    return (
+      <section className="relative h-full">
+        <div className="flex items-center overflow-hidden">
+          <div className="flex flex-col space-y-20 lg:space-y-0">
+            {map.map((project, i) => (
+              <div key={`project-${i}`}>
+                <motion.div
+                  initial={{ opacity: 0, y: 150 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+            
+                >
+                  <ProjectListing project={project} index={i} />
+                </motion.div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <>
-      <section ref={targetRef} className="relative h-[300vh] bg-red-200">
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+      <section ref={targetRef} className="h-[300vh]">
+        <div className="sticky top-0 flex items-center overflow-hidden">
           <motion.div style={{ x }}>
-            <div className="flex gap-4 ">
+            <div className="flex">
               {map.map((project, i) => (
                 <>
                   <div key={`project-${i}`} className="mx-[30rem]" />

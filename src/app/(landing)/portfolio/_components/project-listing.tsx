@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Project } from "@/payload-types";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Loader2 } from "lucide-react";
 
 interface ProjectListingProps {
   project: Project | null;
@@ -22,7 +22,8 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
     return () => clearTimeout(timer);
   }, [index]);
 
-  if (!project || !isVisible) return <ProjectPlaceholder />;
+  if (!project || !isVisible)
+    return <Loader2 key={project?.id} className="animate-spin h-8 w-8 text-primary" />;
 
   const validUrls = project.image
     .map(({ image }) => (typeof image === "string" ? image : image.url))
@@ -30,42 +31,9 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
 
   if (isVisible && project) {
     return (
-      // <section
-      //   style={{ perspective: "500px" }}
-      //   className="h-[100vh] flex justify-center items-center relative snap-center "
-      // >
-      //   <div
-      //     className="w-[300px] h-[400px] relative max-h-[90vh] m-[20px] overflow-hidden "
-      //   >
-      //     {validUrls.map((url, i) => (
-      //       <a
-      //         key={i}
-      //         className={cn("invisible cursor-pointer", {
-      //           "visible animate-in fade-in-5": isVisible,
-      //         })}
-      //         // href={`/portfolio/${project.id}`}
-      //         href={project.url}
-      //         target="_blank"
-      //         rel="noopener noreferrer"
-      //       >
-      //         <Image
-      //           height={1200}
-      //           width={1200}
-      //           quality={80}
-      //           loading="eager"
-      //           className="h-full object-cover bg-center transition-transform duration-300 group-hover:scale-110"
-      //           src={url!}
-      //           alt="Project image"
-      //         />
-      //       </a>
-      //     ))}
-      //   </div>
-      // </section>
-      <section
-        style={{ perspective: "500px" }}
-        className="h-[100vh] flex justify-center items-center relative"
-      >
-        <div className="group relative h-[600px] w-[900px] overflow-hidden ">
+      <section className="h-full lg:h-[100vh] flex flex-col lg:gap-y-10 justify-center items-center">
+        <div className="group flex flex-col gap-y-10 relative lg:h-[600px] lg:w-[900px] overflow-hidden p-4 lg:p-0">
+          <h1 className="font-semibold text-5xl text-center">{project.name}</h1>
           {validUrls.map((url, i) => (
             <a
               key={i}
@@ -82,34 +50,19 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
                 width={800}
                 quality={80}
                 loading="eager"
-                className="h-full w-full object-cover bg-center transition-transform duration-300 group-hover:scale-110 "
+                className="h-full w-full object-cover bg-center transition-transform duration-300 lg:group-hover:scale-110 "
                 src={url!}
                 alt="Project image"
+                priority
               />
             </a>
           ))}
-
-          <div className="absolute inset-0 z-10 grid place-content-center cursor-pointer">
-            <p className="bg-gradient-to-br w-full from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
-              {project.name}
-            </p>
-          </div>
         </div>
+
+        <p className="text-center text-primary p-4 lg:p-0">{project.brief}</p>
       </section>
     );
   }
-};
-
-const ProjectPlaceholder = () => {
-  return (
-    <div className="flex flex-col w-full space-y-4">
-      <div className="relative bg-zinc-100 aspect-square w-full overflow-hidden rounded-xl">
-        <Skeleton className="h-[125px] w-[250px] rounded-xl" />
-      </div>
-      <Skeleton className="h-4 w-[200px]" />
-      <Skeleton className="h-4 w-[250px]" />
-    </div>
-  );
 };
 
 export default ProjectListing;

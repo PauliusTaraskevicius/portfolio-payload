@@ -93,7 +93,7 @@ export const Navigation = () => {
             </Link>
           </div>
         </SheetTrigger>
-        <SheetContent side="left" className="px-2">
+        <SheetContent side="left" className="px-2 ">
           <nav className="flex flex-col gap-y-2 pt-6">
             {routes.map((route) => (
               <Button
