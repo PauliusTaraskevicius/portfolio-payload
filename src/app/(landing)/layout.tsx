@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     "Creating web applications as my hobby and full time job.As a self-taught frontend developer, I specialize in creating dynamic, responsive solutions that empower businesses to thrive in today's digital landscape. With technologies such as Javascript, HTML and CSS, React, Python.Let's unlock your business potential together for unparalleled success.",
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +32,7 @@ export default function RootLayout({
           <Providers>
             <Navigation />
             <Toaster />
-            {children}
+            <main>{children}</main>
             <BuyMeCofeeWidget />
           </Providers>
         </div>

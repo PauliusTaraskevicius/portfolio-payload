@@ -14,8 +14,6 @@ body,
   scrollbar-width: none; /* Firefox */
 }
 
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;

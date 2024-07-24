@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export default function Home() {
   return (
     <ContentWrapper>
@@ -19,7 +18,7 @@ export default function Home() {
               loading="lazy"
             />
           </div>
-          
+
           <div className="flex flex-col w-full gap-12 lg:gap-8  lg:w-1/2 lg:justify-between px-8 py-6 lg:py-0 lg:px-4">
             <h1 className="text-4xl font-extrabold md:text-5xl lg:leading-normal uppercase text-center lg:text-start">
               <span className="text-indigo-600">Frontend</span> developer based
