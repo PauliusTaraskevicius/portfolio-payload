@@ -5,12 +5,12 @@ import Link from "next/link";
 const PortfolioPage = () => {
   return (
     <div className="flex flex-col justify-center items-center space-y-20 pb-24 pt-10 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-52 lg:pb-0">
-      <div className="flex flex-col justify-center items-center space-y-6">
+      <div className="flex flex-col justify-center items-center space-y-8">
         <h1 className="text-6xl font-normal md:text-8xl lg:leading-normal uppercase">
           My work
         </h1>
-        <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px] animate-pulse cursor-pointer">
-          <a href="#skills">
+        <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px] animate-pulse">
+          <a>
             <Image
               fill
               src="/mouse1.png"
@@ -29,7 +29,7 @@ const PortfolioPage = () => {
         href="/portfolio?sort=recent"
         name=""
       />
-      <div className="flex flex-col h-screen lg:w-[900px] justify-center items-center gap-y-20 lg:gap-y-36  ">
+      <div className="flex flex-col h-screen lg:w-[900px] justify-center items-center gap-y-20 lg:gap-y-36">
         <h1 className="text-6xl text-center uppercase">
           Do you have a project?
         </h1>

@@ -76,7 +76,7 @@ const ContactPage = () => {
 
   return (
     <ContentWrapper>
-      <div className="flex w-full justify-center items-center pb-24 pt-10 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-52 lg:pb-52">
+      <div className="flex w-full justify-center items-center pb-24 pt-20 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-52 lg:pb-52">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}

@@ -23,7 +23,12 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
   }, [index]);
 
   if (!project || !isVisible)
-    return <Loader2 key={project?.id} className="animate-spin h-8 w-8 text-primary" />;
+    return (
+      <Loader2
+        key={project?.id}
+        className="animate-spin h-8 w-8 text-primary"
+      />
+    );
 
   const validUrls = project.image
     .map(({ image }) => (typeof image === "string" ? image : image.url))
@@ -31,7 +36,7 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
 
   if (isVisible && project) {
     return (
-      <section className="h-full lg:h-[100vh] flex flex-col lg:gap-y-10 justify-center items-center">
+      <section className="h-full lg:h-[100vh] flex flex-col md:pt-24 lg:gap-y-10 justify-center items-center">
         <div className="group flex flex-col gap-y-10 relative lg:h-[600px] lg:w-[900px] overflow-hidden p-4 lg:p-0">
           <h1 className="font-semibold text-5xl text-center">{project.name}</h1>
           {validUrls.map((url, i) => (

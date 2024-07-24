@@ -1,5 +1,6 @@
 "use client";
-import { useRef } from "react";
+import React from "react";
+import { Fragment, useRef } from "react";
 import { useMedia } from "react-use";
 
 import { TQueryValidator } from "@/lib/query-validator";
@@ -20,7 +21,7 @@ const FALLBACK_LIMIT = 4;
 
 const ProjectsReel = (props: ProjectsReelProps) => {
   const targetRef = useRef(null);
-  const isMobile = useMedia("(max-width: 1024px)", false);
+  const isMobile = useMedia("(max-width: 1280px)", false);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -59,10 +60,11 @@ const ProjectsReel = (props: ProjectsReelProps) => {
             {map.map((project, i) => (
               <div key={`project-${i}`}>
                 <motion.div
+                  key={`project-${i}`}
                   initial={{ opacity: 0, y: 150 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-            
+                  viewport={{ once: true }}
                 >
                   <ProjectListing project={project} index={i} />
                 </motion.div>
@@ -81,11 +83,11 @@ const ProjectsReel = (props: ProjectsReelProps) => {
           <motion.div style={{ x }}>
             <div className="flex">
               {map.map((project, i) => (
-                <>
-                  <div key={`project-${i}`} className="mx-[30rem]" />
+                <React.Fragment key={`project-${i}`}>
+                  <div className="px-[30rem]" />
 
                   <ProjectListing project={project} index={i} />
-                </>
+                </React.Fragment>
               ))}
             </div>
           </motion.div>
