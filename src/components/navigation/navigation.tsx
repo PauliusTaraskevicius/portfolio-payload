@@ -16,7 +16,7 @@ import { Mail } from "lucide-react";
 import { Facebook } from "lucide-react";
 import { Linkedin } from "lucide-react";
 import { Github } from "lucide-react";
-import { FileText } from 'lucide-react';
+import { FileText } from "lucide-react";
 
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -24,6 +24,7 @@ import { Separator } from "@/components/ui/separator";
 
 import { ContentWrapper } from "../content-wrapper";
 import { NavigationItem } from "./navigation-item";
+import { BuyMeCofeeWidget } from "../buy-me-coffee-widget";
 
 const routes = [
   {
@@ -68,7 +69,6 @@ export const Navigation = () => {
 
   if (isMobile) {
     return (
-
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger className="w-full p-3 backdrop-blur-lg transition-all">
           <div className="flex justify-between items-center">
@@ -93,7 +93,7 @@ export const Navigation = () => {
             </Link>
           </div>
         </SheetTrigger>
-        <SheetContent side="left" className="px-2 ">
+        <SheetContent side="left" className="px-2">
           <nav className="flex flex-col gap-y-2 pt-6">
             {routes.map((route) => (
               <Button
@@ -148,6 +148,9 @@ export const Navigation = () => {
                 <p className="pl-2">/pauliustaraskevicius</p>
               </Button>
             </a>
+            <div className="absolute bottom-0 w-full">
+              <BuyMeCofeeWidget />
+            </div>
           </div>
         </SheetContent>
       </Sheet>

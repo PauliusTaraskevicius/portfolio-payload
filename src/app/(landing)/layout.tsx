@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation/navigation";
 import Providers from "@/components/providers";
 
 import { Toaster } from "@/components/ui/toaster";
+import { BuyMeCofeeWidget } from "@/components/buy-me-coffee-widget";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -31,7 +32,9 @@ export default function RootLayout({
             <Navigation />
             <Toaster />
             {children}
+            <BuyMeCofeeWidget />
           </Providers>
+          
         </div>
       </body>
     </html>
