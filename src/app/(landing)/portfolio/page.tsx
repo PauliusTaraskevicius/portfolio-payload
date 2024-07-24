@@ -2,6 +2,8 @@ import Image from "next/image";
 import ProjectsReel from "./_components/projects-reel";
 import Link from "next/link";
 
+import { Skeleton } from "@/components/ui/skeleton";
+
 const PortfolioPage = () => {
   return (
     <div className="flex flex-col justify-center items-center space-y-20 pb-24 pt-10 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-52 lg:pb-0">

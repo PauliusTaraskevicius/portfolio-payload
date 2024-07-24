@@ -11,7 +11,7 @@ export default function Home() {
         <div className="w-full flex flex-col lg:flex-row justify-center gap-x-4">
           <div className="flex justify-center w-full  h-1/2 lg:w-1/2">
             <Image
-              src="/website.svg"
+              src={"/website.svg"}
               width={600}
               height={600}
               alt="website"

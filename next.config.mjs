@@ -7,9 +7,9 @@ const nextConfig = {
         hostname: "localhost",
       },
       {
-        protocol: 'https',
-        hostname: 'cdn.buymeacoffee.com'
-      }
+        protocol: "https",
+        hostname: "cdn.buymeacoffee.com",
+      },
     ],
   },
 };

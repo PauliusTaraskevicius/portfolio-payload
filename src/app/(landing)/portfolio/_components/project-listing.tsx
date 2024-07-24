@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Project } from "@/payload-types";
-import { Loader2 } from "lucide-react";
+
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ProjectListingProps {
   project: Project | null;
@@ -22,13 +23,7 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
     return () => clearTimeout(timer);
   }, [index]);
 
-  if (!project || !isVisible)
-    return (
-      <Loader2
-        key={project?.id}
-        className="animate-spin h-8 w-8 text-primary"
-      />
-    );
+  if (!project || !isVisible) return <ProjectsPlaceholder />;
 
   const validUrls = project.image
     .map(({ image }) => (typeof image === "string" ? image : image.url))
@@ -68,6 +63,21 @@ const ProjectListing = ({ project, index }: ProjectListingProps) => {
       </section>
     );
   }
+};
+
+const ProjectsPlaceholder = () => {
+  return (
+    <div className="h-full lg:h-[100vh] flex flex-col md:pt-24 lg:gap-y-10 justify-center items-center">
+      <div className="flex flex-col h-[400px] w-[400px] lg:h-[600px] lg:w-[900px]  items-center space-y-6">
+        <Skeleton className="mt-2 w-1/2 h-4 rounded-lg bg-zinc-200" />
+        <div className="relative bg-zinc-200 aspect-square w-full overflow-hidden">
+          <Skeleton className="h-full w-full" />
+        </div>
+        <Skeleton className="mt-4 w-3/4 h-4 rounded-lg bg-zinc-200 " />
+        <Skeleton className="mt-4 w-2/3 h-4 rounded-lg bg-zinc-200 " />
+      </div>
+    </div>
+  );
 };
 
 export default ProjectListing;
