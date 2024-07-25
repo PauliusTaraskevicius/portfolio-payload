@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
+
 import { ContentWrapper } from "@/components/content-wrapper";
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description:
+    "Self-taught, task-driven, innovative developer with 2 years of experience in web development as a freelancer.Proficient in creating responsive web applications from scratch as well as maintaining and designing websites for clients.Always looking to improve day by day my technical skills.",
+};
 
 const ResumePage = () => {
   return (

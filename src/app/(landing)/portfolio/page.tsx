@@ -1,8 +1,16 @@
-import Image from "next/image";
-import ProjectsReel from "./_components/projects-reel";
+import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+
+import ProjectsReel from "./_components/projects-reel";
 
 import { Skeleton } from "@/components/ui/skeleton";
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description:
+    "I specialize in creating dynamic, responsive solutions that empower businesses to thrive in today's digital landscape. With technologies such as Javascript, HTML and CSS, React, Python.Let's unlock your business potential together for unparalleled success.",
+};
 
 const PortfolioPage = () => {
   return (

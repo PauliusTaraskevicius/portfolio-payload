@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
+
 import { ContentWrapper } from "@/components/content-wrapper";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About me",
+  description:
+    "Hi! Im Paulius and I'm a self-taught frontend developer from Lithuania.I love creating helpful tools and apps for everyone to enjoy.",
+};
 
 const AboutPage = () => {
   return (
