@@ -2,6 +2,7 @@ import { ContentWrapper } from "@/components/content-wrapper";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import Error from "./error";
 
 export default function Home() {
   return (

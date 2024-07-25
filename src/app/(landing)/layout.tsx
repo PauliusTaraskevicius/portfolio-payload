@@ -4,8 +4,10 @@ import "./globals.css";
 import { Navigation } from "@/components/navigation/navigation";
 import Providers from "@/components/providers";
 
-import { Toaster } from "@/components/ui/toaster"; 
+import { Toaster } from "@/components/ui/toaster";
 import { BuyMeCofeeWidget } from "@/components/buy-me-coffee-widget";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -32,7 +34,9 @@ export default function RootLayout({
           <Providers>
             <Navigation />
             <Toaster />
-            <main>{children}</main>
+            <Suspense fallback={<Loading />}>
+              <main>{children}</main>
+            </Suspense>
             <BuyMeCofeeWidget />
           </Providers>
         </div>
