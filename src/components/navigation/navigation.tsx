@@ -93,7 +93,7 @@ export const Navigation = () => {
             </Link>
           </div>
         </SheetTrigger>
-        <SheetContent side="left" className="px-2">
+        <SheetContent side="left" className="px-2 flex flex-col justify-between h-full">
           <nav className="flex flex-col gap-y-2 pt-6">
             {routes.map((route) => (
               <Button
@@ -107,48 +107,50 @@ export const Navigation = () => {
               </Button>
             ))}
           </nav>
-          <Separator className="my-2" />
-          <div className="flex flex-col space-y-2">
-            <a
-              href="https://linkedin.com/in/paulius-taraškevičius-916b83234"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                className="w-full justify-start border-none hover:bg-primary hover:text-primary-foreground"
+          
+          <div className="flex flex-col justify-between h-full">
+            <div>
+              <a
+                href="https://linkedin.com/in/paulius-taraškevičius-916b83234"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Linkedin className="w-6 h-6" />
-                <p className="pl-2 ">/paulius-taraskevicius</p>
-              </Button>
-            </a>
-            <a
-              href="https://www.facebook.com/paulius.taraskevicius"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                className="w-full justify-start border-none hover:bg-primary hover:text-primary-foreground"
+                <Button
+                  variant="outline"
+                  className="w-full justify-start border-none hover:bg-primary hover:text-primary-foreground"
+                >
+                  <Linkedin className="w-6 h-6" />
+                  <p className="pl-2 ">/paulius-taraskevicius</p>
+                </Button>
+              </a>
+              <a
+                href="https://www.facebook.com/paulius.taraskevicius"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Facebook className="w-6 h-6" />
-                <p className="pl-2">/paulius.taraskevicius</p>
-              </Button>
-            </a>
-            <a
-              href="https://github.com/PauliusTaraskevicius"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                className="w-full justify-start border-none hover:bg-primary hover:text-primary-foreground"
+                <Button
+                  variant="outline"
+                  className="w-full justify-start border-none hover:bg-primary hover:text-primary-foreground"
+                >
+                  <Facebook className="w-6 h-6" />
+                  <p className="pl-2">/paulius.taraskevicius</p>
+                </Button>
+              </a>
+              <a
+                href="https://github.com/PauliusTaraskevicius"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Github className="w-6 h-6" />
-                <p className="pl-2">/pauliustaraskevicius</p>
-              </Button>
-            </a>
-            <div className="absolute bottom-0 w-full">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start border-none hover:bg-primary hover:text-primary-foreground"
+                >
+                  <Github className="w-6 h-6" />
+                  <p className="pl-2">/pauliustaraskevicius</p>
+                </Button>
+              </a>
+            </div>
+            <div className="w-full">
               <BuyMeCofeeWidget />
             </div>
           </div>

@@ -2,7 +2,7 @@ export interface Config {
   collections: {
     users: User;
     projects: Project;
-
+    media: Media;
     "payload-preferences": PayloadPreference;
     "payload-migrations": PayloadMigration;
   };
@@ -105,5 +105,5 @@ export interface PayloadMigration {
 }
 
 declare module "payload" {
-  export interface GeneratedTypes extends Config {}
+  export interface GenerateTypes extends Config {}
 }

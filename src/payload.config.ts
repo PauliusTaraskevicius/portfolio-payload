@@ -6,9 +6,14 @@ import path from "path";
 import { Users } from "./collections/Users";
 import { Projects } from "./collections/Projects";
 import { Media } from "./collections/Media";
-
+import dotenv from 'dotenv'
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
+
+dotenv.config({
+  path: path.resolve(__dirname, '../.env'),
+})
+
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
