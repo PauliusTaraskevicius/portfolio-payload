@@ -1,13 +1,14 @@
-import { getPayloadClient } from "@/get-payload";
-import { notFound } from "next/navigation";
+// import { getPayloadClient } from "@/get-payload";
+// import { notFound } from "next/navigation";
 
 import { ContentWrapper } from "@/components/content-wrapper";
-import Image from "next/image";
+// import Image from "next/image";
 
 import React, { Fragment } from "react";
-import escapeHTML from "escape-html";
-import { Text } from "slate";
-import { TypeWithID } from "payload/types";
+// import escapeHTML from "escape-html";
+// import { Text } from "slate";
+// import { TypeWithID } from "payload/types";
+import { Loader2 } from "lucide-react";
 
 type Props = {
   params: {
@@ -16,23 +17,23 @@ type Props = {
 };
 
 const PortfolioIdPage = async ({ params }: Props) => {
-  const { portfolioId } = params;
+  // const { portfolioId } = params;
 
-  const payload = await getPayloadClient();
+  // const payload = await getPayloadClient();
 
-  const { docs: projects } = await payload.find({
-    collection: "projects",
-    limit: 1,
-    where: {
-      id: {
-        equals: portfolioId,
-      },
-    },
-  });
+  // const { docs: projects } = await payload.find({
+  //   collection: "projects",
+  //   limit: 1,
+  //   where: {
+  //     id: {
+  //       equals: portfolioId,
+  //     },
+  //   },
+  // });
 
-  const [project]: (TypeWithID & Record<string, unknown>)[] = projects;
+  // const [project]: (TypeWithID & Record<string, unknown>)[] = projects;
 
-  if (!project) return notFound();
+  // if (!project) return notFound();
 
   // const validUrls = project.image
   //   .map(({ image }) => (typeof image === "string" ? image : image.url))
@@ -129,6 +130,7 @@ const PortfolioIdPage = async ({ params }: Props) => {
             />
           </div>
         ))} */}
+      <Loader2 className="size-6" />
     </ContentWrapper>
   );
 };
