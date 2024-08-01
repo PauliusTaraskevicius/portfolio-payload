@@ -64,7 +64,7 @@ var dotenv_1 = __importDefault(require("dotenv"));
 var path_1 = __importDefault(require("path"));
 var payload_1 = __importDefault(require("payload"));
 dotenv_1.default.config({
-    path: path_1.default.resolve(__dirname, "../.env"),
+    path: path_1.default.resolve(__dirname, '../.env'),
 });
 var cached = global.payload;
 if (!cached) {
@@ -85,7 +85,7 @@ var getPayloadClient = function () {
             switch (_d.label) {
                 case 0:
                     if (!process.env.PAYLOAD_SECRET) {
-                        throw new Error("PAYLOAD_SECRET is missing");
+                        throw new Error('PAYLOAD_SECRET is missing');
                     }
                     if (cached.client) {
                         return [2 /*return*/, cached.client];

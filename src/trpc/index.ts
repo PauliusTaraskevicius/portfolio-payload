@@ -4,6 +4,7 @@ import { publicProcedure, router } from "./trpc";
 import { QueryValidator } from "../lib/query-validator";
 import { getPayloadClient } from "../get-payload";
 
+
 export const appRouter = router({
   getInfiniteProjects: publicProcedure
     .input(

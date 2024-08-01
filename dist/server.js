@@ -87,7 +87,7 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                         express: app,
                         onInit: function (cms) { return __awaiter(void 0, void 0, void 0, function () {
                             return __generator(this, function (_a) {
-                                cms.logger.info("Admin URL ".concat(cms.getAdminURL()));
+                                cms.logger.info("Admin URL: ".concat(cms.getAdminURL()));
                                 return [2 /*return*/];
                             });
                         }); },

@@ -8,6 +8,7 @@ import { Projects } from "./collections/Projects";
 import { Media } from "./collections/Media";
 import dotenv from "dotenv";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
+
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 
 dotenv.config({
