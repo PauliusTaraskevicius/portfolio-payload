@@ -18,10 +18,11 @@ dotenv_1.default.config({
     path: path_1.default.resolve(__dirname, "../.env"),
 });
 exports.default = (0, config_1.buildConfig)({
-    serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || process.env.NEXT_PUBLIC_SERVER_URL,
+    // process.env.PAYLOAD_PUBLIC_SERVER_URL || process.env.NEXT_PUBLIC_SERVER_URL,
+    serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
     collections: [Users_1.Users, Projects_1.Projects, Media_1.Media],
     routes: {
-        admin: "/admin",
+        admin: "/sell",
     },
     admin: {
         user: "users",
