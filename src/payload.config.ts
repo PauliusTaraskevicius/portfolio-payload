@@ -20,7 +20,7 @@ export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
   collections: [Users, Projects, Media],
   routes: {
-    admin: "/sell",
+    admin: "/admin",
   },
   admin: {
     user: "users",

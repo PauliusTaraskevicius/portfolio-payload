@@ -22,7 +22,7 @@ exports.default = (0, config_1.buildConfig)({
     serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
     collections: [Users_1.Users, Projects_1.Projects, Media_1.Media],
     routes: {
-        admin: "/sell",
+        admin: "/admin",
     },
     admin: {
         user: "users",
