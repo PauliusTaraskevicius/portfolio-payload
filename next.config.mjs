@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+// import path from "path";
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -16,20 +19,10 @@ const nextConfig = {
       },
     ],
   },
-
-  // webpack: (config, options) => {
-  //   config.module.rules.push({
-  //     test: /\.mdx/,
-  //     use: [
-  //       options.defaultLoaders.babel,
-  //       {
-  //         loader: "@mdx-js/loader",
-  //         options: pluginOptions.options,
-  //         sharp: "commonjs sharp",
-  //       },
-  //     ],
-  //   });
-
+  // webpack: (config) => {
+  //   config.resolve.alias["load"] = path.resolve(
+  //     "./node_modules/payload/dist/config/load.js"
+  //   );
   //   return config;
   // },
 };

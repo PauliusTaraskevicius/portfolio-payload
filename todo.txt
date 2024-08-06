@@ -1,2 +1,5 @@
 
 - About kazkokias images i sona
+- padding top in production nuimt, nes eina scrollint
+- nextjs downgradint ir sutvarkyt kodel neloadina css
+- dynamic component imports

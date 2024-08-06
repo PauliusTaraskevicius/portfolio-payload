@@ -17,7 +17,7 @@ const Error = ({ error }: { error: ErrorType & { digest?: string } }) => {
   }, [error]);
 
   return (
-    <main className="h-screen w-full flex flex-col justify-center items-center ">
+    <main className="h-screen w-full flex flex-col justify-center items-center">
       <h1 className="text-9xl font-extrabold tracking-widest text-[#1A2238]">
         404
       </h1>

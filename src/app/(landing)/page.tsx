@@ -5,10 +5,10 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <ContentWrapper>
+    <ContentWrapper className="p-0">
       <div className="flex justify-center items-center pb-24 pt-10 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-52 lg:pb-52">
         <div className="w-full flex flex-col lg:flex-row justify-center gap-x-4">
-          <div className="flex justify-center w-full  h-1/2 lg:w-1/2">
+          <div className="flex justify-center w-full  h-1/2 lg:w-1/2 ">
             <Image
               src={"/website.svg"}
               width={600}
